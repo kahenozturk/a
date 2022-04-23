@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App2.Views.ÜyelikGirisPage"
+             Visual="Material">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Hoşgeldin"
+                   FontSize="40"
+                   HorizontalOptions="CenterAndExpand"/>
+            <Label Text="İndirimlerden faydalanmak için üye ol veya giriş yap"
+                   FontSize="15"
+                   HorizontalOptions="CenterAndExpand"/>
+            <Button Text="Üye Ol" 
+                    x:Name="UyeOl"
+                    Clicked="UyeOl_Clicked"/>
+
+            <Button Text="Giriş Yap"
+                    x:Name="GirisYap"
+                    Clicked="GirisYap_Clicked"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:App2.ViewModels" 
+             x:DataType="vm:ÜyeOlViewModel"
+             x:Class="App2.Views.ÜyelikPage"
+             Visual="Material">
+
+
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Merhaba, üye olmak için bilgilerinizi giriniz."
+                   FontSize="Medium"/>
+            <Entry x:Name="MobileNo" Placeholder="Telefon No" Text="{Binding UserPhone}"/>
+            <Entry x:Name="mailEntry" Placeholder="E-Posta" Text="{Binding UserMail}"/>
+            <Button Text="Üye Ol"
+                    x:Name="UyeOl"
+                    Command="{Binding RegisterCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

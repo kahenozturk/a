@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:App2.ViewModels" 
+             x:DataType="viewmodels:CategViewModel"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:models="clr-namespace:App2.Models"
+             x:Class="App2.Views.CategView"
+             Title="{Binding SelectedCategory.CategoryName}">
+
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <ImageButton Source="{FontImage FontFamily=FontAwesome}"
+                         Grid.Row="0" HorizontalOptions="Start" Aspect="AspectFit"
+                         VerticalOptions="Start" Margin="10,30" Clicked="ImageButton_Clicked"/>
+
+            <Label Grid.Row="0" Grid.Column="0" Text="{Binding TotalFoodItem,StringFormat='{0} Total Items'}"
+                   />
+
+            <CollectionView ItemsSource="{Binding ProductsByCtaegory}"
+                            SelectionMode="Single"
+                            SelectionChanged="CollectionView_SelectionChanged">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2"
+                                     VerticalItemSpacing="5"/>
+                    <!-- Kategori resimleri arasındaki dikey boşluk-->
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <pancake:PancakeView>
+                                    <Image Source="{Binding  }" Aspect="AspectFill"
+                                         WidthRequest="90" HeightRequest="90"
+                                         Grid.Column="0" 
+                                         />
+                                    <!--ImageUrll-->
+                                </pancake:PancakeView>
+                                <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"
+                                       Text="{Binding }"/>
+                                <!--ProductNamee-->
+                                <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" 
+                                       VerticalOptions="Center"
+                                       Text="{Binding }"/> 
+                                <!--Price-->
+
+
+
+                            </Grid>
+                        </StackLayout>
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </Grid>
+
+
+    </ContentPage.Content>
+</ContentPage>

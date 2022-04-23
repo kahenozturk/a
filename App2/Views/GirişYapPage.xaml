@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:App2.ViewModels" 
+             x:DataType="vm:GirisYapViewModel"
+             x:Class="App2.Views.GirişYapPage"
+             Visual="Material">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="TelefonNo" Placeholder="Telefon No" Text="{Binding UserPhone}"/>
+            <Button x:Name="Songirisbutton" 
+                    Text="Giriş Yap"
+                    Command="{Binding LoginCommand}"
+                    />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

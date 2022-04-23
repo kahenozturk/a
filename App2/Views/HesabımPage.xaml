@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:App2.ViewModels" 
+             x:DataType="viewmodels:HesabımViewModel"
+             x:Class="App2.Views.HesabımPage"
+             Title="{Binding Title} ">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Merhaba"
+                   FontSize="40"
+                   FontAttributes="Bold"
+                   HorizontalOptions="CenterAndExpand"
+                />
+            <Button ImageSource="icon_1hesabim.png"
+                    Clicked="UyeGiris_Clicked"
+                    x:Name="UyeGiris"
+                    Text="Üye Ol Veya Giriş Yap         >" />
+            <Button ImageSource="icon_map.png"
+                    Text="Teslimat Bölgesi Tercihim     >&#x0a; (Siparişini Nasıl Getirelim?)"/>
+            <Button ImageSource="icon_siparistakip.png"
+                    Text="           Sipariş Takibi             >&#x0a; (Üye olmayan kullanıcılar için)"/>
+
+        </StackLayout>
+
+
+
+    </ContentPage.Content>
+
+
+    <ContentPage.BindingContext>
+        <viewmodels:HesabımViewModel />
+    </ContentPage.BindingContext>
+
+</ContentPage>

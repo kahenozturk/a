@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:App2.ViewModels"
+             x:Class="App2.Views.ProductView"
+             Title="Anasayfa">
+
+    <ContentPage.BindingContext>
+        
+        <vm:CategoriesViewModel/>
+    </ContentPage.BindingContext>
+
+    
+
+    <ContentPage.Content>
+
+
+
+
+        <Grid>
+            
+            <StackLayout>
+                <CarouselView ItemsSource="{Binding Kategorilers}"
+                              Margin="0">
+
+                    <CarouselView.ItemTemplate>
+
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame Margin="0" Padding="0" HasShadow="True">
+                                    <Image Source="{Binding ImageUrl}"
+                                           HeightRequest="250"
+                                           Aspect="AspectFill"/>
+
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                    
+                </CarouselView>
+            </StackLayout>
+            <Grid Margin="0 ,250, 0, 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                
+            </Grid.RowDefinitions>
+                
+                
+                
+                
+                
+
+            <CollectionView ItemsSource="{Binding Kategorilers}"
+                            SelectionChanged="CollectionView_SelectionChanged"
+                            SelectionMode="Single"
+                            
+                            x:Name="Categories">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2"
+                                     VerticalItemSpacing="5"/>
+                    <!-- Kategori resimleri arasındaki dikey boşluk-->
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <ImageButton Source="{Binding ImageUrl}" Aspect="AspectFill"
+                                         x:Name="Kategoriler"
+                                         WidthRequest="90" HeightRequest="90"
+                                         Grid.Column="0"
+                                         />
+                            <StackLayout Orientation="Horizontal" Grid.Column="1">
+                                <Label Text ="{Binding CategoryName}" 
+                                       TextColor="Black" 
+                                       VerticalTextAlignment="Center" 
+                                       FontAttributes="Bold" 
+                                       FontSize="Subtitle"/>
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
